@@ -1,0 +1,15 @@
+{
+  "name": "frontend-ai-monorepo",
+  "private": true,
+  "version": "1.0.0",
+  "workspaces": [
+    "ai-main-program",
+    "vscode-extension",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:ai": "npm run dev -w @frontend-ai/ai-main-program",
+    "dev:vscode": "npm run dev -w @frontend-ai/vscode-extension",
+    "build": "npm run build -w @frontend-ai/common && npm run build -w @frontend-ai/ai-main-program && npm run build -w @frontend-ai/vscode-extension"
+  }
+}

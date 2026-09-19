@@ -1,0 +1,54 @@
+{
+  "name": "@frontend-ai/vscode-extension",
+  "version": "1.0.0",
+  "private": true,
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "main": "./dist/extension.js",
+  "activationEvents": [
+    "onStartupFinished",
+    "onCommand:frontend-ai.openChat"
+  ],
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "frontend-ai",
+          "title": "Frontend AI",
+          "icon": "$(comment-discussion)"
+        }
+      ]
+    },
+    "views": {
+      "frontend-ai": [
+        {
+          "id": "frontend-ai.sidebar",
+          "name": "Chat"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "frontend-ai.openChat",
+        "title": "Frontend AI: Open Chat"
+      }
+    ]
+  },
+  "scripts": {
+    "dev": "npm run build:webview && tsc -watch -p tsconfig.json",
+    "build": "npm run build:webview && tsc -p tsconfig.json",
+    "build:webview": "vite build --config webview/vite.config.ts"
+  },
+  "dependencies": {
+    "@frontend-ai/common": "workspace:*",
+    "vue": "^3.5.13"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "@types/vscode": "^1.90.0",
+    "@vitejs/plugin-vue": "^5.0.0",
+    "typescript": "^5.7.2",
+    "vite": "^5.4.10"
+  }
+}

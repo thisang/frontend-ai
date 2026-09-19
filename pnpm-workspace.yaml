@@ -1,0 +1,4 @@
+packages:
+  - "ai-main-program"
+  - "vscode-extension"
+  - "packages/*"
